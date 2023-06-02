@@ -14,23 +14,21 @@ const Form = () => {
     setIsLoading(true);
 
     // send the value to the server, and once the server responds, set isLoading to false
-    socket.timeout(5000).emit(
-      'create-something',
-      value,
-      () => {
-        setResponseMessage('Message sent successfully');
+    socket
+      .timeout(5000)
+      .emit('create-something', value, (err: any, response: any) => {
         setIsLoading(false);
-      },
-      (err: any) => {
         if (err) {
           const errorJSON = JSON.stringify(serializeError(err), null, 2); // need to use serializeError because w/ JSON.stringify(err) empty object will be returned: https://stackoverflow.com/a/50738205/13727176
           const errorMsg = `An error occurred while sending the message:`;
           setResponseMessage(`${errorMsg}\n${errorJSON}`);
-          setIsLoading(false);
           console.error(errorMsg, err);
+          return;
         }
-      }
-    );
+        setResponseMessage(
+          'Message sent successfully. Response from server: ' + response
+        );
+      });
   }
 
   return (

@@ -69,15 +69,17 @@ export default App;
  * adapted from https://socket.io/how-to/use-with-react
  */
 export function useSocket() {
-  const [isConnected, setIsConnected] = useState(socket.connected);
+  const [isConnected, setIsConnected] = useState(false);
   const [fooEvents, setFooEvents] = useState<any[]>([]);
 
   useEffect(() => {
     function onConnect() {
+      console.log('connected');
       setIsConnected(true);
     }
 
     function onDisconnect() {
+      console.log('disconnected');
       setIsConnected(false);
     }
 
@@ -88,6 +90,8 @@ export function useSocket() {
     socket.on('connect', onConnect);
     socket.on('disconnect', onDisconnect);
     socket.on('foo', onFooEvent);
+
+    setIsConnected(socket.connected);
 
     return () => {
       socket.off('connect', onConnect);
