@@ -1,0 +1,32 @@
+{
+  "name": "live-controls-server",
+  "version": "0.0.0",
+  "description": "Server exposing API for controlling your Ableton Live Set",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "author": {
+    "name": "Samo Kolter",
+    "url": "https://github.com/Sejmou"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "ableton-js": "^3.1.8",
+    "express": "^4.18.2",
+    "socket.io": "^4.6.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.2.5",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "build": "rm -r dist && tsc"
+  }
+}
