@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import { invoke } from '@tauri-apps/api/tauri';
-import { socket } from './socket';
+import { socket } from './server-connection';
 import ConnectionState from './components/ConnectionState';
 import Events from './components/Events';
 import ConnectionManager from './components/ConnectionManager';
-import Form from './components/Form';
+import PlaybackControls from './components/PlaybackControls';
 
 function App() {
   const [greetMsg, setGreetMsg] = useState('');
@@ -57,7 +57,7 @@ function App() {
         <ConnectionState isConnected={isConnected} />
         <Events events={fooEvents} />
         <ConnectionManager />
-        <Form />
+        <PlaybackControls />
       </div>
     </div>
   );

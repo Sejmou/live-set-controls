@@ -16,6 +16,9 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "globalShortcut": {
+        "all": true
       }
     },
     "bundle": {
@@ -35,11 +38,11 @@
     },
     "windows": [
       {
-        "fullscreen": true,
+        "fullscreen": false,
         "resizable": true,
         "title": "Live Set Controls",
-        "width": 800,
-        "height": 600
+        "width": 1920,
+        "height": 1080
       }
     ]
   }

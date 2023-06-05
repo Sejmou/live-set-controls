@@ -27,6 +27,17 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
-    "build": "rm -r dist && tsc"
+    "build": "rm -rf dist && tsc"
+  },
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "./src/*"
+      ],
+      "websocket-api": [
+        "../websocket-api/src/index.ts"
+      ]
+    }
   }
 }

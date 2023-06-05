@@ -1,5 +1,5 @@
 type Props = {};
-import { socket } from '../socket';
+import { socket } from '../server-connection';
 import Button from './Button';
 
 const ConnectionManager = (props: Props) => {
