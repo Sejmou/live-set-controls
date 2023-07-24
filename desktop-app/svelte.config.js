@@ -8,7 +8,10 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		alias: {
+			api: '../websocket-api/src/client.ts' // note: for path alias to apply, you must restart the dev server (pnpm run dev, or pnpm tauri dev if using tauri)
+		}
 	}
 };
 

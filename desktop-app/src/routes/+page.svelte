@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import { api } from '$lib';
+</script>
+
+<h1>Welcome to Ableton Live</h1>
+<p>It's exciting!</p>
+
+<button on:click={api.startPlayback}>Play</button>
+<button on:click={api.stopPlayback}>Stop</button>

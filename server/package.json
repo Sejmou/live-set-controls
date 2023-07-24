@@ -15,6 +15,7 @@
   "dependencies": {
     "ableton-js": "^3.1.8",
     "express": "^4.18.2",
+    "lodash": "^4.17.21",
     "socket.io": "^4.6.2"
   },
   "devDependencies": {
@@ -26,17 +27,14 @@
   },
   "scripts": {
     "start": "node dist/index.js",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
-    "build": "rm -rf dist && tsc"
+    "dev": "cp -r ../websocket-api/src/ ./src/api/ && nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "build": "rm -rf dist && cp -r ../websocket-api/src/ ./src/api/ && tsc"
   },
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "~/*": [
         "./src/*"
-      ],
-      "websocket-api": [
-        "../websocket-api/src/index.ts"
       ]
     }
   }
