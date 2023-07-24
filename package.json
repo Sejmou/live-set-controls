@@ -1,8 +1,0 @@
-{
-  "private": true,
-  "workspaces": [
-    "desktop-app",
-    "server",
-    "websocket-api"
-  ]
-}

@@ -1,0 +1,2 @@
+packages:
+  - '*/' # all subdirectories of the root directory should be treated as packages
